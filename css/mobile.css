@@ -6,6 +6,10 @@ p {
     font-size: 16px;
 }
 
+header {
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 53.23%, rgba(0, 0, 0, 0) 80.88%), url(../assets/images/mobile-header.jpeg);
+}
+
 .content-width {
     width: 90%;
 }

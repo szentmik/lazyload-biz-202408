@@ -10,7 +10,7 @@ html {
 
 body {
     color: var(--black);
-    font-family: "Inter", sans-serif;
+    font-family: "Inter";
     font-weight: 400;
     font-size: 16px;
     line-height: 2;
@@ -88,7 +88,7 @@ input:focus, textarea:focus {
 }
 
 nav {
-    font-family: "Montserrat", sans-serif;
+    font-family: "Montserrat";
     align-items: center;
 }
 
