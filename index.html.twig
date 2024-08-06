@@ -1,0 +1,924 @@
+{% extends 'base-index.html.twig' %}
+
+{% block title %}Bizindecate - Business for Sale: Deal, Invest, Sell, Buy: Dynamic Business Moves!{% endblock %}
+{% block description %}Bizindecate: Connect, trade, and grow your business with strategic listings and investment opportunities. Join us to prosper! Discover numerous business for sale options.{% endblock %}
+{% block tags %}Home, articles, Blog, Listings, Bizindecate, Brokers, Business for sale, for sale, business, company{% endblock %}
+{% block og_site_name %}Home{% endblock %}
+{% block og_image %}https://bizindecate.com/essentialfiles/bizindecate-logo.png{% endblock %}
+{% block og_url %}https://bizindecate.com/{% endblock %}
+{% block og_description %}Deal, Invest, Sell, Buy: Dynamic Business Moves! Find the best business for sale opportunities.{% endblock %}
+
+{% block body %}
+    <style>
+        .index-background {
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+
+        .index-background:after {
+            content: '';
+            width: 100%;
+            height: 200px;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, #f3f3f9);;
+        }
+
+        .background-canvas {
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+
+        @media (max-width: 500px) {
+            .row.main-container-row .col:first-child {
+                display: none;
+            }
+
+            .row.main-container-row .col:last-child {
+                display: none;
+            }
+
+            .row.main-container-row .col-10 {
+                padding-left: 18px;
+                width: 99%;
+                padding-right: 18px;
+            }
+
+            #featured-listings-container .my-tags div {
+                padding: 5px 17px;
+                font-size: 13px;
+                min-height: unset;
+            }
+        }
+    </style>
+    <div class="index-background">
+        <div style="height: 100px;"></div>
+        <div class="background-canvas">
+            {% if confirmed or successfulTransaction %}
+                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <symbol id="check-circle-fill" viewBox="0 0 16 16">
+                        <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+                    </symbol>
+                    <symbol id="info-fill" viewBox="0 0 16 16">
+                        <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
+                    </symbol>
+                    <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
+                        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                    </symbol>
+                </svg>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <svg style="height: 20px; width: 20px; color: #0f5132;vertical-align: sub;"
+                         class="bi flex-shrink-0 me-2"
+                         role="img" aria-label="Success:">
+                        <use xlink:href="#check-circle-fill"/>
+                    </svg>
+                    {% if confirmed %}
+                        Your account has been verified successfully.
+                    {% else %}
+                        Your credits have been successfully transferred.
+                    {% endif %}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+
+            {% include 'social_media_icons/social_media_icons.html.twig' %}
+            {% include 'home/view_more_modal.html.twig' %}
+
+            <div class="button-container"
+                 style="display: flex; flex-wrap: wrap; margin-bottom: 50px; margin-top: 30px;">
+                <button id="new-listing" data-bs-toggle="modal" data-bs-target="#new-edit-modal"
+                        class="btn btn-dark">
+                    <i class="fa-solid fa-plus" style="color: #01d900;"></i>&nbsp;
+                    Create listing
+                </button>
+                {% if user is not null %}
+                    <button id="my-listings" data-bs-toggle="modal" data-bs-target="#listings-modal"
+                            class="btn btn-dark">
+                        My listings
+                    </button>
+                {% endif %}
+            </div>
+
+            <div class="my-container">
+                <div class="card mb-0"
+                     style="border-radius: 10px;box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.1) !important;">
+                    <div class="card-body">
+                        <form id="filter-form">
+                            <div class="form-margin p-3 pb-2 mb-4" style="height: 70px;">
+                                <input type="text" id="listing-search-filter-text" name="title"
+                                       class="form-control text-uppercase mt-3" placeholder="Search for a title...">
+                            </div>
+                            <div class="form-check advsearch d-inline-block d-flex justify-content-center mb-4 pb-2 mt-5"
+                                 style="align-items: center;">
+                                <input class="form-check-input chksearch" type="checkbox" id="chksearch">
+                                <label style="margin-left: 6px;margin-top: 0px;" class="form-check-label"
+                                       for="chksearch">
+                                    <h6 style="margin-bottom: 0px;">Detailed Filtering</h6>
+                                </label>
+                            </div>
+                            <div class="row" id="advsearch" style="display: none;">
+                                <div class="col-md-4 form-margin maintype">
+                                    <label>Main Type</label>
+                                    <select class="form-select" name="mainType" id="maintype" disabled="disabled"
+                                            style="margin-top: 5px;">
+                                        <option value="">All</option>
+                                        <option value="0">Selling a company / looking for an investor</option>
+                                        <option value="1">Looking for an investment opportunity</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 form-margin reqtype" style="display: none;">
+                                    <label>Request Type</label>
+                                    <select class="form-select" name="requestType" id="reqtype" disabled="disabled"
+                                            style="margin-top: 3px;">
+                                        <option value="">All</option>
+                                        <option value="for_sale">For sale (for dollars)</option>
+                                        <option value="for_exchange">For exchange</option>
+                                        <option value="for_investment">For investment</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 form-margin reqvalue" style="display: none;">
+                                    <label>Requested value</label>
+                                    <select class="form-select" name="offerRequestType" id="reqvalue"
+                                            disabled="disabled"
+                                            style="margin-top: 2px;">
+                                        <option value="">All</option>
+                                        <option value="money">Money (in dollars)</option>
+                                        <option value="stock_or_crypto">Stock/Cryptocurrency</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 form-margin offeredvalue" style="display: none;">
+                                    <label>Offered value</label>
+                                    <select class="form-select" name="offerRequestType" id="offeredvalue"
+                                            disabled="disabled"
+                                            style="margin-top: 3px;">
+                                        <option value="">All</option>
+                                        <option value="money">Money (in dollars)</option>
+                                        <option value="stock_or_crypto">Stock/Cryptocurrency</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 form-margin stockcrypto" style="display: none;">
+                                    <label style="margin-bottom: 9px;">Stock/Cryptocurrency</label>
+                                    <select class="form-select" name="StockOrCrypto" id="stockcrypto"
+                                            disabled="disabled">
+                                        <option value="">All</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12 form-margin reqamountvalue">
+                                    <label>Requested / Offered amount of value</label>
+                                    <div class="d-flex" style="margin-top: 5px;">
+                                        <div style="flex-grow: 1;">
+                                            <input type="number" class="form-control" name="firstRange" id="firstRange"
+                                                   placeholder="Minimum amount">
+                                        </div>
+                                        <div class=" px-3"
+                                             style="display: flex;align-items: center;justify-content: center;"><b>-</b>
+                                        </div>
+                                        <div style="flex-grow: 1;">
+                                            <input type="number" class="form-control" name="secondRange"
+                                                   id="secondRange"
+                                                   placeholder="Maximum amount">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 form-margin startup">
+                                    <label>Start up</label>
+                                    <select class="form-select" name="startUp" style="margin-top: 1px;">
+                                        <option value="">All</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-margin franchise">
+                                    <label>Franchise</label>
+                                    <select class="form-select" name="franchise" style="margin-top: 4px;">
+                                        <option value="">All</option>
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-margin country">
+                                    <label style="margin-bottom: 9px;">Country of location</label>
+                                    <select class="form-select" id="country"
+                                            name="country">
+                                        <option value="">All</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-margin city">
+                                    <label style="margin-bottom: 9px;">City / State</label>
+                                    <select class="form-select" id="city"
+                                            name="city">
+                                        <option value="">All</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12 form-margin activities">
+                                    <label style="margin-bottom: 10px;">Business Activities</label>
+                                    <select class="form-select" id="activities-select" multiple="multiple"
+                                            name="businessActivities[]">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="text-center mb-3 mt-0">
+                                <button type="submit" id="submit-filter" class="btn btn-dark"><i
+                                            class="fa-solid fa-magnifying-glass"></i>
+                                    <span id="main-search-text"> Search</span>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 200px"></div>
+    </div>
+
+
+    <div class="page-content" style="padding: initial;">
+        <style>
+            .choices__inner {
+                height: 120px;
+            }
+
+            .my-tags {
+                display: flex;
+                flex-wrap: wrap;
+            }
+
+            .my-tags div {
+                padding: 2px 24px;
+                margin-right: 6px;
+                border-radius: 30px;
+                margin-top: 6px;
+                border: 1px solid #00000040;
+                background: #212529 !important;
+                font-size: 1.1rem;
+                display: flex;
+                align-items: center;
+                min-height: 40px;
+            }
+
+            @media screen and (max-width: 991px) {
+                .my-tags div {
+                    min-height: 50px;
+                    height: auto;
+                }
+            }
+
+        </style>
+
+        <div class="row" style="margin-left: 3%; margin-right: 3%;">
+            <div class="col-12">
+                <div class="pb-location" style="border-radius: 5px;margin-top: 100px;">
+                    <div class="my-container">
+                        <div class="my-title mb-5">Popular Business
+                            Categories
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-3">
+        <span data-id="{{ topActivities[0]['id'] }}" class="card imgcard buac lazyload"
+              data-bg="{{ siteUrl }}/categories_images/{{ topActivities[0].icon }}">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topActivities[0].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                            <div class="col-sm-6 col-lg-6">
+        <span data-id="{{ topActivities[1]['id'] }}" class="card imgcard buac lazyload"
+              data-bg="{{ siteUrl }}/categories_images/{{ topActivities[1].icon }}">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topActivities[1].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+        <span data-id="{{ topActivities[2]['id'] }}" class="card imgcard buac lazyload"
+              data-bg="{{ siteUrl }}/categories_images/{{ topActivities[2].icon }}">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topActivities[2].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                            <div class="col-sm-6 col-lg-6">
+        <span data-id="{{ topActivities[3]['id'] }}" class="card imgcard buac lazyload"
+              data-bg="{{ siteUrl }}/categories_images/{{ topActivities[3].icon }}">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topActivities[3].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                            <div class="col-sm-6 col-lg-6">
+        <span data-id="{{ topActivities[4]['id'] }}" class="card imgcard buac lazyload"
+              data-bg="{{ siteUrl }}/categories_images/{{ topActivities[4].icon }}">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topActivities[4].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+        <span data-id="{{ topActivities[5]['id'] }}" class="card imgcard buac lazyload"
+              data-bg="{{ siteUrl }}/categories_images/{{ topActivities[5].icon }}">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topActivities[5].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                            <div class="col-sm-6 col-lg-6">
+        <span data-id="{{ topActivities[6]['id'] }}" class="card imgcard buac lazyload"
+              data-bg="{{ siteUrl }}/categories_images/{{ topActivities[6].icon }}">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topActivities[6].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+        <span data-id="{{ topActivities[7]['id'] }}" class="card imgcard buac lazyload"
+              data-bg="{{ siteUrl }}/categories_images/{{ topActivities[7].icon }}">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topActivities[7].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                        </div>
+
+
+                        <div class="mt-5 text-center">
+                            <button class="btn btn-dark" id="show_all_business_activities">View all categories</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pb-location" style="border-radius: 5px;margin-top: 100px;">
+                    <div class="my-container">
+                        <div class="my-title mb-5">Popular Business
+                            Locations
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 col-lg-3">
+        <span data-id="{{ topCountries[0]['id'] }}" class="card imgcard country-filter lazyload"
+              data-bg="{{ siteUrl }}/country_images/{{ topCountries[0].icon == 'ad' ? 'andorra' : topCountries[0].icon }}.jpg">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topCountries[0].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                            <div class="col-sm-6 col-lg-6">
+        <span data-id="{{ topCountries[1]['id'] }}" class="card imgcard country-filter lazyload"
+              data-bg="{{ siteUrl }}/country_images/{{ topCountries[1].icon == 'ad' ? 'andorra' : topCountries[1].icon }}.jpg">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topCountries[1].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+        <span class="card imgcard country-filter lazyload" data-id="{{ topCountries[2]['id'] }}"
+              data-bg="{{ siteUrl }}/country_images/{{ topCountries[2].icon == 'ad' ? 'andorra' : topCountries[2].icon }}.jpg">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topCountries[2].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+
+                            <div class="col-sm-6 col-lg-6">
+        <span class="card imgcard country-filter lazyload" data-id="{{ topCountries[3]['id'] }}"
+              data-bg="{{ siteUrl }}/country_images/{{ topCountries[3].icon == 'ad' ? 'andorra' : topCountries[3].icon }}.jpg">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topCountries[3].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                            <div class="col-sm-6 col-lg-6">
+        <span class="card imgcard country-filter lazyload" data-id="{{ topCountries[4]['id'] }}"
+              data-bg="{{ siteUrl }}/country_images/{{ topCountries[4].icon == 'ad' ? 'andorra' : topCountries[4].icon }}.jpg">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topCountries[4].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+
+                            <div class="col-sm-6 col-lg-3">
+        <span class="card imgcard country-filter lazyload" data-id="{{ topCountries[5]['id'] }}"
+              data-bg="{{ siteUrl }}/country_images/{{ topCountries[5].icon == 'ad' ? 'andorra' : topCountries[5].icon }}.jpg">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topCountries[5].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                            <div class="col-sm-6 col-lg-6">
+        <span class="card imgcard country-filter lazyload" data-id="{{ topCountries[6]['id'] }}"
+              data-bg="{{ siteUrl }}/country_images/{{ topCountries[6].icon == 'ad' ? 'andorra' : topCountries[6].icon }}.jpg">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topCountries[6].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                            <div class="col-sm-6 col-lg-3">
+        <span class="card imgcard country-filter lazyload" data-id="{{ topCountries[7]['id'] }}"
+              data-bg="{{ siteUrl }}/country_images/{{ topCountries[7].icon == 'ad' ? 'andorra' : topCountries[7].icon }}.jpg">
+            <div class="card-body py-3">
+                <div class="d-flex align-items-center justify-content-center text-center" style="height: 200px;">
+                    <div>
+                        <h5 class="my-0 fw-600 nname">{{ topCountries[7].name }}</h5>
+                    </div>
+                </div>
+            </div>
+        </span>
+                            </div>
+                        </div>
+
+
+                        <div class="mt-5 text-center">
+                            <button class="btn btn-dark" id="show_all_countries">View more popular location</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pb-location" id="featured-listings-container">
+                    <div class="my-container">
+                        <div class="my-title mb-0 mb-sm-5">Featured
+                            listings
+                        </div>
+                        <div class="row">
+                            {% if featuredListings is not empty %}
+                                <div id="featured-listings-carousel" class="carousel slide" data-bs-ride="carousel"
+                                     data-bs-interval="10000" style="height: 500px;">
+                                    <div class="carousel-inner" style="padding-bottom: 5px;">
+                                        <div style="margin-left: 30px;margin-right: 30px;margin-top:40px;">
+
+                                            {% for listing in featuredListings %}
+                                                <div class="carousel-item {{ (loop.index == 1) ? 'active' : '' }}"
+                                                     align="center">
+                                                    <div class="card my-cont highlight" align="initial"
+                                                         style="margin-bottom: 0px!important;">
+                                                        <div class="card-body listing-card-body"
+                                                             data-id="{{ listing.id }}"
+                                                             data-url="{{ listing.getEncodedUrl }}">
+                                                            <div class="item-sec">
+                                                                <div class="my-itmes">
+                                                                    <div class="item-photo d-flex"
+                                                                         style="justify-content: center;">
+                                                                        <img data-bg="/{{ listing.thumbnail }}" src="/essentialfiles/imgload.png"
+                                                                             class="rounded lazyload" alt="listing pic">
+                                                                    </div>
+                                                                    <div class="item-des" style="width: 100%">
+                                                                        <h5 class="title">{{ listing.title|capitalize }}</h5>
+                                                                        <div class="text-muted mb-1 sec-info"
+                                                                             style="margin-top: 20px;"><img
+                                                                                    style="width: 25px; height: auto;margin-right: 5px;"
+                                                                                    class="img-fluid"
+                                                                                    src="/flags/{{ listing.country.icon }}.svg"
+                                                                                    alt="{{ listing.country.title }} logo">
+                                                                            {{ (listing.company is not null and listing.company.city is not null) ? listing.company.city : '' }}
+                                                                            ,
+                                                                            {{ listing.country.title }}
+                                                                        </div>
+                                                                        <div class="d-flex" style="gap: 5px;">
+                                                                            {% if listing.company is not null and listing.company.startUp == 1 %}
+                                                                                <div class="text-muted mb-1 sec-info"
+                                                                                     style="margin-top: 20px;"><b
+                                                                                            class="start-up-title">Start
+                                                                                        Up</b>
+                                                                                </div>
+                                                                            {% endif %}
+                                                                            {% if listing.company is not null and listing.company.franchise == 1 %}
+                                                                                <div class="text-muted mb-1 sec-info"
+                                                                                     style="margin-top: 20px;"><b
+                                                                                            class="franchise-title">Franchise</b>
+                                                                                </div>
+                                                                            {% endif %}
+                                                                        </div>
+                                                                        <div class="text-muted mb-1 sec-info"
+                                                                             style="margin-top:20px;padding: 4px;border: 2px solid grey;border-radius: 10px;">
+                                                                            <b>{{ (listing.mainType == 0) ? 'Selling a company / looking for an investor' : 'Looking for an investment opportunity' }}</b>
+                                                                        </div>
+                                                                        {% if listing.offerRequestType == 'money' and listing.requestedPrice is not null %}
+                                                                            <div class="price mb-1"
+                                                                                 style="margin-top: 20px;">
+                                                                                ${{ listing.requestedPrice|number_format(0, '.', ',') }}
+                                                                            </div>
+                                                                        {% elseif listing.offerRequestType == 'stock_or_crypto' and listing.requestedPrice is not null %}
+                                                                            <div class="price mb-1"
+                                                                                 style="margin-top: 20px;">
+                                                                                {{ listing.requestedPrice|number_format(0, '.', ',') }}
+                                                                                Units
+                                                                                (<a
+                                                                                        style="color: red;">{{ listing.stockOrCrypto.symbol }}</a>)
+                                                                            </div>
+                                                                        {% endif %}
+                                                                        <a href="/portfolio/{{ listing.user.userName }}"
+                                                                           class="btn user-btn px-0"
+                                                                           style="margin-top: 10px;">
+                                                                            <img data-bg="/{{ listing.user.profilePic }}" class="lazyload" src=""
+                                                                                 alt="user pic">
+                                                                            <span class="ps-1 fw-500">{{ listing.user.nametitle is not null ? listing.user.nametitle ~ ' ' : '' }} {{ listing.user.name }}</span>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="mt-4 mb-4">
+                                                                <div class="my-tags">
+                                                                    {% if listing.company is null %}
+                                                                        {% for tag in listing.activities %}
+                                                                            {% if loop.index0 < 5 %}
+                                                                                <div class="bg-info text-white">{{ tag.name }}</div>
+                                                                            {% endif %}
+                                                                        {% endfor %}
+                                                                    {% else %}
+                                                                        {% for tag in listing.company.activities %}
+                                                                            {% if loop.index0 < 5 %}
+                                                                                <div class="bg-info text-white">{{ tag.name }}</div>
+                                                                            {% endif %}
+                                                                        {% endfor %}
+                                                                    {% endif %}
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="desc mt-3">
+                                                                <p class="mb-0">
+                                                                    {% if listing.company is empty %}
+                                                                        {{ listing.getListingDescriptionWithoutHtmlTags }}
+                                                                    {% else %}
+                                                                        {{ listing.company.getOverviewWithoutHtmlTags }}
+                                                                    {% endif %}
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev custom-prev" type="button"
+                                            data-bs-target="#featured-listings-carousel"
+                                            data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next custom-next" type="button"
+                                            data-bs-target="#featured-listings-carousel"
+                                            data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
+                                </div>
+                            {% else %}
+                                <div class="d-flex align-items-center justify-content-center">
+                                    <h1>There aren't any featured listings yet.</h1>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pb-location" style="border-radius: 5px;margin-top: 100px;">
+                    <div class="pt-3 bg-transparent">
+                        <div class="my-container" style="font-size: large;">
+                            <div class="my-title mb-5">
+                                <img src="/assets/images/otp-logo-standard.webp" alt="OneTreePlanted logo" width="300">
+                            </div>
+                            <div class="row" style="margin-left: 0px!important;margin-right: 0px!important;">
+                                {% include 'home/otp.html.twig' with {'allUsersSum': allUsersSum, 'allPlantedTrees': allPlantedTrees, 'user': user} %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pb-location" style="border-radius: 5px;margin-top: 100px;" >
+                    <div class="pt-3 bg-transparent">
+                        <div class="my-container home-article-container">
+                            <div class="my-title mb-5">Our Latest
+                                Articles
+                            </div>
+                            <div class="row">
+                                {% if articles is not empty %}
+                                    {% for article in articles|slice(0, 6) %}
+                                        <div class="col-lg-4 col-md-6">
+                                            <a href="/blog/article/{{ article.id }}/{{ article.encodedTitle }}"
+                                               class="card myblog">
+                                                <img data-bg="/{{ article.thumbnail }}" src="/essentialfiles/imgload.png" class="card-img-top lazyload" alt="...">
+                                                <div class="card-body">
+                                                    <div class="text-center fw-500">{{ article.title }}</div>
+                                                    <div class="my-2">{{ article.publishedAt|date('F j, Y') }}</div>
+                                                    <p class="card-text">{{ article.removeHtmlTags(article.prologue) }}</p>
+                                                    <div class="mybadge">
+                                                        {% for tag in article.getSplittedTags|slice(0, 3) %}
+                                                            <span class="badge rounded-pil text-bg-dark">{{ tag|capitalize }}</span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="text-center mt-4" data-aos-duration="500" data-aos="fade-up">
+                                        <a href="/blog" class="more-link">View all articles</a>
+                                    </div>
+                                {% else %}
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <h1 style="color: #949494;">There aren't any articles yet.</h1>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pb-location" style="border-radius: 5px;margin-top: 100px;">
+                    <div class="pt-3 bg-transparent">
+                        <div class="my-container" style="font-size: large">
+                            <div class="my-title mb-5">About Us</div>
+                            <div class="row align-items-center">
+                                <div class="col-lg-5 aboutimg" data-aos-duration="500" data-aos="fade-up">
+                                    <img class="lazyload" data-bg="essentialfiles/about_us.webp" src="/essentialfiles/imgload.png" alt="About us logo">
+                                </div>
+                                <div class="col-lg-7" data-aos-duration="500" data-aos="fade-up">
+                                    <p>
+                                        <b>Bizindecate.com</b> is an innovative platform designed to bring together
+                                        entrepreneurs and
+                                        investors, providing opportunities to promote, expand, and build their business
+                                        networks.
+                                        Our platform features a wide array of functionalities, including deep
+                                        advertising
+                                        opportunities with detailed analytics, a direct deal-making feature, customized
+                                        portfolios,
+                                        personalized promotional emails, an extensive business blog, and a professional
+                                        messaging
+                                        system for seamless communication.
+                                    </p>
+                                    <p>
+                                        Among our key services are the advertising of companies and businesses for sale
+                                        or
+                                        investment, as well as investor advertisements for financial investment,
+                                        enabling them
+                                        to
+                                        find the most suitable opportunities on our platform.
+                                    </p>
+                                    <p class="mb-0">
+                                        We are committed to building a community based on mutual trust and transparency,
+                                        where
+                                        every
+                                        user has the chance to succeed. <b><a href="/register" style="color: #00e37c;">Join</a>
+                                            Bizindecate</b> today to explore unlimited opportunities
+                                        and turn your business dreams into reality in a space where excellence,
+                                        innovation, and
+                                        success converge.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text-center" data-aos-duration="500" data-aos="fade-up"
+                                 style="margin-top: 50px;">
+                                <a href="/about_us" class="more-link">Read More About Us</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pb-location"
+                     style="border-radius: 5px;margin-top: 100px;{{ (user is not null) ? 'margin-bottom: 100px;' : '' }}"
+                     >
+                    <div class="pt-3 bg-transparent">
+                        <div class="my-container" style="font-size: large">
+                            <div class="row align-items-center">
+                                <div class="col-lg-5 text-center" data-aos-duration="500" data-aos="fade-up">
+                                    <h2 style="color: #1cd994cf;font-weight: 600;">Our Services</h2>
+                                </div>
+                                <div class="col-lg-7" data-aos-duration="500" data-aos="fade-up">
+                                    <p>
+                                        <b>Bizindecate.com</b> encourages business collaboration by providing a range of
+                                        services that
+                                        help entrepreneurs and investors make smart decisions in the business world.
+                                        We are experts at making connections that help the economy grow.
+                                        To help you make smart financial decisions, we provide a carefully chosen
+                                        list of investment opportunities.
+                                        Our service connects new businesses with experienced investors,
+                                        forming partnerships that are good for both sides.
+                                        To make sure these connections work, we offer personalized help and
+                                        a professional messaging system that makes sure everyone can talk to each other
+                                        clearly and effectively.
+                                    </p>
+                                </div>
+
+                                <div class="col-lg-5 text-center" data-aos-duration="500" data-aos="fade-up">
+                                    <h2 style="color: #1cd994cf;font-weight: 600;">Innovative Solutions</h2>
+                                </div>
+                                <div class="col-lg-7 mt-5" data-aos-duration="500" data-aos="fade-up">
+                                    <p>
+                                        Data is a powerful tool for making decisions in the digital age.
+                                        At <b>Bizindecate</b>, we offer deep analytical insights that give our clients a
+                                        competitive edge.
+                                        Our platform has advanced tools that look at market trends and help users adapt
+                                        their strategies to
+                                        a business world that is always changing. Members can keep track of their
+                                        interests
+                                        and make smart investment
+                                        decisions with customized portfolios. We want to make the process of business
+                                        growth
+                                        and investment as
+                                        easy to understand as possible by giving you these custom solutions.
+                                    </p>
+                                </div>
+
+                                <div class="col-lg-5 text-center" data-aos-duration="500" data-aos="fade-up">
+                                    <h2 style="color: #1cd994cf;font-weight: 600;">Community and Trust</h2>
+                                </div>
+                                <div class="col-lg-7 mt-5" data-aos-duration="500" data-aos="fade-up">
+                                    <p>
+                                        A transparent and sincere relationship between users is what <b>Bizindecate</b>
+                                        is
+                                        built on.
+                                        We're committed to making a safe platform where all interactions are honest for
+                                        the
+                                        most part.
+                                        People who share your interest in business and new ideas can come together here
+                                        to
+                                        share their
+                                        knowledge and work together on projects that could change entire industries.
+                                        If you join our community, you'll be entering a place where chances are
+                                        plentiful,
+                                        and everyone has an equal chance to do well and make their mark in the business
+                                        world.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if user is null %}
+                    <div class="pb-location bg-bonus"
+                         style="border-radius: 5px;margin-top: 100px;background-image: url('assets/images/bg22.png');"
+                         >
+                        <div class="my-container">
+                            <div class="bonus-link">
+                                <h2 data-aos-duration="500" data-aos="fade-down">Sign Up for $20 worth of credits!</h2>
+                                <a data-aos-duration="500" data-aos="fade-up" href="/register"
+                                   class="btn btn-light border-0 gradient-bonus mt-3">Sign Up Now!</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="primary-bg"
+                         style="border-radius: 5px;margin-bottom: 100px;margin-top: 100px;{{ (user is not null) ? 'margin-bottom: 100px;' : '' }}"
+                         >
+                        <div class="pt-3 bg-transparent">
+                            <div class="my-container" style="font-size: large">
+                                <div class="row align-items-center">
+                                    <div class="my-title mb-5 text-white">
+                                        Subscribe To
+                                        Our Newsletter
+                                    </div>
+                                    <div class="row">
+                                        <div class="text-center mb-5 text-white">
+                                            Subscribe to our newsletter to get the latest updates on our <b>articles</b>,
+                                            <b>news</b>, and available <b>bonuses</b> directly to your inbox.
+                                        </div>
+                                        <form id="newsletter-form-index" class="text-center">
+                                            <div class="d-flex justify-content-center">
+                                                <input type="text" required id="newsletter-email"
+                                                       style="border-radius: 10px;color:white;border-color: white;background-color:inherit;width: 60%;height: 45px;font-size: 1.2rem;"
+                                                       name="email"
+                                                       placeholder="Email Address"
+                                                       class="form-control text-center">
+                                            </div>
+                                            <button type="submit" data-aos-duration="500" data-aos="fade-up"
+                                                    id="submit-newsletter-form" class="btn btn-light mt-5">Subscribe
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <script>
+            $(window).on('load', function() {
+                setTimeout(function () {
+                    let lazyElements = $(".lazyload").not('.navbar-logo');
+
+                    if ("IntersectionObserver" in window) {
+                        let lazyObserver = new IntersectionObserver(function(entries, observer) {
+                            entries.forEach(function(entry) {
+                                if (entry.isIntersecting) {
+                                    let $lazyElement = $(entry.target);
+                                    let bgSource = $lazyElement.data('bg');
+
+                                    if ($lazyElement.is('img')) {
+                                        $lazyElement.attr('src', bgSource);
+                                    } else {
+                                        $lazyElement.css('background-image', "url('" + bgSource + "')");
+                                    }
+
+                                    $lazyElement.removeClass("lazyload").addClass("lazyloaded");
+                                    lazyObserver.unobserve(entry.target);
+                                }
+                            });
+                        });
+
+                        lazyElements.each(function() {
+                            lazyObserver.observe(this);
+                        });
+                    } else {
+                        let lazyLoad = function() {
+                            lazyElements.each(function() {
+                                let $lazyElement = $(this);
+                                let rect = this.getBoundingClientRect();
+                                if (rect.top <= window.innerHeight && rect.bottom >= 0 && getComputedStyle(this).display !== "none") {
+                                    let bgSource = $lazyElement.data('bg');
+
+                                    if ($lazyElement.is('img')) {
+                                        $lazyElement.attr('src', bgSource);
+                                    } else {
+                                        $lazyElement.css('background-image', 'url(' + bgSource + ')');
+                                    }
+
+                                    $lazyElement.removeClass("lazyload").addClass("lazyloaded");
+                                }
+                            });
+
+                            if (lazyElements.length === 0) {
+                                $(document).off("scroll", lazyLoad);
+                                $(window).off("resize", lazyLoad);
+                                $(window).off("orientationchange", lazyLoad);
+                            }
+                        };
+
+                        $(document).on("scroll", lazyLoad);
+                        $(window).on("resize", lazyLoad);
+                        $(window).on("orientationchange", lazyLoad);
+                    }
+                }, 3000);
+            });
+        </script>
+
+        {% include '/listing/listing-script.html.twig' with {'listings': listings, 'home' : true} %}
+    </div>
+
+    {% include 'home/view_more_modal.html.twig' %}
+
+{% endblock %}

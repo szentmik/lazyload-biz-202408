@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font family  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <!-- CSS  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/mobile.css" media="screen and (max-width: 1280px)" />
+    <title>Document</title>
+
+    <!-- {% block title %}Bizindecate - Business for Sale: Deal, Invest, Sell, Buy: Dynamic Business Moves!{% endblock %}
+    {% block description %}Bizindecate: Connect, trade, and grow your business with strategic listings and investment opportunities. Join us to prosper! Discover numerous business for sale options.{% endblock %}
+    {% block tags %}Home, articles, Blog, Listings, Bizindecate, Brokers, Business for sale, for sale, business, company{% endblock %}
+    {% block og_site_name %}Home{% endblock %}
+    {% block og_image %}https://bizindecate.com/essentialfiles/bizindecate-logo.png{% endblock %}
+    {% block og_url %}https://bizindecate.com/{% endblock %}
+    {% block og_description %}Deal, Invest, Sell, Buy: Dynamic Business Moves! Find the best business for sale opportunities.{% endblock %}
+     -->
+
+
+</head>
+
+<body>
+    <header loading="lazy" class="">
+        <div class="header-contact">
+            <div class="flex-container-header content-width container-fluid">
+                <div class="flex-item-header">
+                    <div class="top-contact">
+                        <img class="show-top-contact" src="assets/images/icons/Call.png" alt="phone icon">
+                        <div class="top-contact-dropdown"><a class="phone-number"
+                                href="tel:386-218-4942">386-218-4942</a> ,
+                            <a class="phone-number" href="tel:904-647-5240">904-647-5240</a>
+                        </div>
+                    </div>
+                    <div class="top-contact">
+                        <img class="show-top-contact" src="assets/images/icons/Message.png" alt="envelope icon">
+                        <div class="top-contact-dropdown"><a
+                                href="mailto:info@professionalsunshineroofing.com">info@professionalsunshineroofing.com</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-item-header">
+                    <a href=""><img src="assets/images/icons/face.png" alt="facebook icon"></a>
+                    <a href=""><img src="assets/images/icons/twitter.png" alt="x icon"></a>
+                    <a href=""><img src="assets/images/icons/insta.png" alt="instagram icon"></a>
+                    <a href=""><img src="assets/images/icons/linkdin.png" alt="linkedin icon"></a>
+                </div>
+            </div>
+        </div>
+        <div class="nav-background">
+            <nav class="content-width py-3">
+                <div class="container-fluid">
+                    <div class="navbar-flex">
+                        <div class="">
+                            <a class="navbar-brand" href="#"><img class="nav-logo" src="assets/images/logo-dark.png"
+                                    alt="logo"></a>
+                        </div>
+                        <div class="navbar-links-bg">
+                            <div class="navbar-links">
+                                <div class="nav-close hide"><img src="assets/images/icons/close.png" alt=""></div>
+                                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                                <a class="nav-link" href="#">Buy a Business</a>
+                                <a class="nav-link" href="#">Sell a Business</a>
+                                <a class="nav-link" href="#">Investments</a>
+                                <a class="nav-link" href="#">Brokers</a>
+                                <a class="nav-link" href="#">Contact us</a>
+                                <a class="nav-link" href="#">About us</a>
+                                <a class="nav-link" href="#">Blog</a>
+                                <button class="nav-button lang-btn-2"><img src="assets/images/flag-eng.png" alt="">
+                                    EN <img src="assets/images/icons/arrow-down.png" alt=""></button>
+                            </div>
+                        </div>
+                        <div class="nav-buttons">
+                            <button class="nav-button lang-btn"><img src="assets/images/flag-eng.png" alt=""> EN <img
+                                    src="assets/images/icons/arrow-down.png" alt=""></button>
+                            <button class="nav-button">Sign In</button>
+                            <button class="nav-button">Sign Up</button>
+                            <div class="mobile-menu-btn hide"><img src="assets/images/icons/menu.png" alt=""></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </nav>
+        </div>
+
+        <!-- Hero section  -->
+
+        <div class="py-5 content-width">
+            <div class="hero">
+                <div>
+                    <h1 class="pb-4">Welcome to Bizindecate,
+                        your one-stop destination for all your business needs. </h1>
+                    <div class="">
+                        <p class="mb-4">Whether you are looking to buy, sell, invest, or deal in various business
+                            opportunities, we are here to make the process seamless and efficient.</p>
+                    </div>
+                    <div class="slide-btns-flex">
+                        <div class="slide-btns">
+                            <button type="button" class="slide-btn slide-btn-active">Business to buy</button>
+                            <button type="button" class="slide-btn">Investments</button>
+                        </div>
+                    </div>
+
+
+                    <ul class="listing-flex">
+                        <li class="listing-item">+Create listing</li>
+                        <li class="listing-item">My listing</li>
+                    </ul>
+
+
+                    <div class="">
+                        <form class="industries-flex" action="">
+                            <input class="industries-item" type="text" placeholder="California">
+                            <input type="button" value="x">
+                            <select class="industries-item" name="industries" id="industries">
+                                <option value="all">All Industries</option>
+                            </select>
+                            <button type="submit" class="black-btn">Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <section id="about" class="container-fluid py-5">
+        <div class="about-content flex-box content-width">
+            <div class="about-item">
+                <h2 class="py-4">Why Choose Bizindecate?</h2>
+                <p>
+                    At Bizindecate, we are dedicated to providing unparalleled value and comprehensive business
+                    solutions.
+                    Our
+                    platform is tailored to cater to the diverse needs of entrepreneurs and investors, ensuring an ideal
+                    environment
+                    to connect, grow, and succeed.
+                </p>
+                <p>
+                    Our features include robust advertising opportunities with detailed analytics
+                    for effective target audience engagement, direct deal-making for seamless business transactions,
+                    customized
+                    portfolios tailored to specific business needs, personalized promotional emails sent to prospects
+                    and
+                    clients,
+                    an extensive business blog with articles on the latest industry trends and insights, and a
+                    professional
+                    messaging system for seamless communication with other professionals.
+                </p>
+            </div>
+            <div class="about-item">
+                <div loading="lazy">
+                    <img class="about-img" src="assets/images/pics/about-img-0.jpg" alt="">
+                    <img class="about-img" src="assets/images/pics/about-img-1.jpg" alt="">
+                    <img class="about-img" src="assets/images/pics/about-img-2.png" alt="">
+                    <img class="about-img" src="assets/images/pics/about-img-3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Price  -->
+
+    <section id="price" class="container-fluid py-5">
+        <div class="content-width">
+            <h2>Featured Listings</h2>
+            <div class="py-5 price-cards desktop-hide">
+                <!-- first card  -->
+                <div class="price-card">
+                    <h3>Bizindecate demo listing</h3>
+                    <p><img src="assets/images/us-flag.png" alt="">Los Angeles,United States Of America</p>
+                    <div class="price-links">
+                        <a href="">Start Up</a>
+                        <a href="">Franchise</a>
+                    </div>
+                    <div class="my-3 price-selling">
+                        <p>
+                            Selling Company / looking for investor
+                        </p>
+                    </div>
+                    <p class="price-tag">$100,00</p>
+                    <p>Mr. Jankó Olivér</p>
+                    <div class="price-links">
+                        <a class="black-btn" href="">Quality control</a>
+                        <a class="black-btn" href="">Production of goods</a>
+                    </div>
+                </div>
+                <!-- second card  -->
+                <div class="price-card">
+                    <h3>Bizindecate demo listing</h3>
+                    <p><img src="assets/images/us-flag.png" alt="">Los Angeles,United States Of America</p>
+                    <div class="price-links">
+                        <a href="">Start Up</a>
+                        <a href="">Franchise</a>
+                    </div>
+                    <div class="my-3 price-selling">
+                        <p>
+                            Selling Company / looking for investor
+                        </p>
+                    </div>
+                    <p class="price-tag">$100,00</p>
+                    <p>Mr. Jankó Olivér</p>
+                    <div class="price-links">
+                        <a class="black-btn" href="">Quality control</a>
+                        <a class="black-btn" href="">Production of goods</a>
+                    </div>
+                </div>
+                <!-- third card  -->
+                <div class="price-card">
+                    <h3>Bizindecate demo listing</h3>
+                    <p><img src="assets/images/us-flag.png" alt="">Los Angeles,United States Of America</p>
+                    <div class="price-links">
+                        <a href="">Start Up</a>
+                        <a href="">Franchise</a>
+                    </div>
+                    <div class="my-3 price-selling">
+                        <p>
+                            Selling Company / looking for investor
+                        </p>
+                    </div>
+                    <p class="price-tag">$100,00</p>
+                    <p>Mr. Jankó Olivér</p>
+                    <div class="price-links">
+                        <a class="black-btn" href="">Quality control</a>
+                        <a class="black-btn" href="">Production of goods</a>
+                    </div>
+                </div>
+                <!-- fourth card  -->
+                <div class="price-card">
+                    <h3>Bizindecate demo listing</h3>
+                    <p><img src="assets/images/us-flag.png" alt="">Los Angeles,United States Of America</p>
+                    <div class="price-links">
+                        <a href="">Start Up</a>
+                        <a href="">Franchise</a>
+                    </div>
+                    <div class="my-3 price-selling">
+                        <p>
+                            Selling Company / looking for investor
+                        </p>
+                    </div>
+                    <p class="price-tag">$100,00</p>
+                    <p>Mr. Jankó Olivér</p>
+                    <div class="price-links">
+                        <a class="black-btn" href="">Quality control</a>
+                        <a class="black-btn" href="">Production of goods</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile view price cards -->
+            <!-- Carousel  -->
+            <div class="py-5 price-cards mobile-show">
+
+                <div id="carouselPrice" class="carousel carousel-dark slide">
+                    <div class="carousel-indicators car-indicator">
+                        <button type="button" data-bs-target="#carouselPrice" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselPrice" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselPrice" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#carouselPrice" data-bs-slide-to="3"
+                            aria-label="Slide 4"></button>
+                    </div>
+
+
+                    <div class="carousel-inner">
+                        <div class="carousel-item active" data-bs-interval="10000">
+                            <!-- first card  -->
+                            <div class="price-card">
+                                <h3>Bizindecate demo listing</h3>
+                                <p><img src="assets/images/us-flag.png" alt="">Los Angeles,United States Of America</p>
+                                <div class="price-links">
+                                    <a href="">Start Up</a>
+                                    <a href="">Franchise</a>
+                                </div>
+                                <div class="my-3 price-selling">
+                                    <p>
+                                        Selling Company / looking for investor
+                                    </p>
+                                </div>
+                                <p class="price-tag">$100,00</p>
+                                <p>Mr. Jankó Olivér</p>
+                                <div class="price-links">
+                                    <a class="black-btn" href="">Quality control</a>
+                                    <a class="black-btn" href="">Production of goods</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" data-bs-interval="10000">
+                            <!-- second card  -->
+                            <div class="price-card">
+                                <h3>Bizindecate demo listing</h3>
+                                <p><img src="assets/images/us-flag.png" alt="">Los Angeles,United States Of America</p>
+                                <div class="price-links">
+                                    <a href="">Start Up</a>
+                                    <a href="">Franchise</a>
+                                </div>
+                                <div class="my-3 price-selling">
+                                    <p>
+                                        Selling Company / looking for investor
+                                    </p>
+                                </div>
+                                <p class="price-tag">$100,00</p>
+                                <p>Mr. Jankó Olivér</p>
+                                <div class="price-links">
+                                    <a class="black-btn" href="">Quality control</a>
+                                    <a class="black-btn" href="">Production of goods</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item" data-bs-interval="10000">
+                            <!-- second card  -->
+                            <div class="price-card">
+                                <h3>Bizindecate demo listing</h3>
+                                <p><img src="assets/images/us-flag.png" alt="">Los Angeles,United States Of America</p>
+                                <div class="price-links">
+                                    <a href="">Start Up</a>
+                                    <a href="">Franchise</a>
+                                </div>
+                                <div class="my-3 price-selling">
+                                    <p>
+                                        Selling Company / looking for investor
+                                    </p>
+                                </div>
+                                <p class="price-tag">$100,00</p>
+                                <p>Mr. Jankó Olivér</p>
+                                <div class="price-links">
+                                    <a class="black-btn" href="">Quality control</a>
+                                    <a class="black-btn" href="">Production of goods</a>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="carousel-item" data-bs-interval="10000">
+                            <!-- second card  -->
+                            <div class="price-card">
+                                <h3>Bizindecate demo listing</h3>
+                                <p><img src="assets/images/us-flag.png" alt="">Los Angeles,United States Of America</p>
+                                <div class="price-links">
+                                    <a href="">Start Up</a>
+                                    <a href="">Franchise</a>
+                                </div>
+                                <div class="my-3 price-selling">
+                                    <p>
+                                        Selling Company / looking for investor
+                                    </p>
+                                </div>
+                                <p class="price-tag">$100,00</p>
+                                <p>Mr. Jankó Olivér</p>
+                                <div class="price-links">
+                                    <a class="black-btn" href="">Quality control</a>
+                                    <a class="black-btn" href="">Production of goods</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="slide-control-btns">
+                        <button class="carousel-control-prev slide-control-btn" type="button"
+                            data-bs-target="#carouselPrice" data-bs-slide="prev">
+                            <span> <img src="assets/images/icons/angle-left.png" alt=""> </span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next slide-control-btn" type="button"
+                            data-bs-target="#carouselPrice" data-bs-slide="next">
+                            <span><img src="assets/images/icons/angle-right.png" alt=""></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+
+                <!-- ----Carousel----  -->
+
+
+                <div class="price-view-all">
+                    <button class="black-btn">View All Featured</button>
+                </div>
+            </div>
+
+    </section>
+
+    <!-- Categories  -->
+
+    <section id="categories" class="container-fluid py-5">
+        <div>
+            <h2>Popular Categories</h2>
+
+            <div class="slide-btns-flex">
+                <div class="slide-btns">
+                    <button type="button" class="slide-btn slide-btn-active">POPULAR CATEGORIES</button>
+                    <button type="button" class="slide-btn">POPULAR LOCATIONS</button>
+                </div>
+            </div>
+
+            <div class="py-5 categories-cards content-width">
+                <div class="categories-card">
+                    <div class="">
+                        <img loading="lazy" class="cat-img" src="assets/images/pics/dubai.jpg" alt="dubai image">
+                    </div>
+                    <div class="cat-text-flex">
+                        <div>
+                            <p>Dubai</p>
+                            <p>365</p>
+                        </div>
+                        <div class="cat-text-arrow">
+                            <img class="arrow-up-right" src="assets/images/arrow-up-right.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categories-card">
+                    <div class="">
+                        <img loading="lazy" class="cat-img" src="assets/images/pics/malaysia.jpg" alt="Malaysia image">
+                    </div>
+                    <div class="cat-text-flex">
+                        <div>
+                            <p>Malaysia</p>
+                            <p>365</p>
+                        </div>
+                        <div class="cat-text-arrow">
+                            <img class="arrow-up-right" src="assets/images/arrow-up-right.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categories-card">
+                    <div class="">
+                        <img loading="lazy" class="cat-img" src="assets/images/pics/italy.jpg" alt="Italy image">
+                    </div>
+                    <div class="cat-text-flex">
+                        <div>
+                            <p>Italy</p>
+                            <p>365</p>
+                        </div>
+                        <div class="cat-text-arrow">
+                            <img class="arrow-up-right" src="assets/images/arrow-up-right.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categories-card">
+                    <div class="">
+                        <img loading="lazy" class="cat-img" src="assets/images/pics/brasil.jpg" alt="Brazil image">
+                    </div>
+                    <div class="cat-text-flex">
+                        <div>
+                            <p>Brazil</p>
+                            <p>365</p>
+                        </div>
+                        <div class="cat-text-arrow">
+                            <img class="arrow-up-right" src="assets/images/arrow-up-right.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categories-card">
+                    <div class="">
+                        <img loading="lazy" class="cat-img" src="assets/images/pics/florida.jpg" alt="Florida image">
+                    </div>
+                    <div class="cat-text-flex">
+                        <div>
+                            <p>Florida</p>
+                            <p>365</p>
+                        </div>
+                        <div class="cat-text-arrow">
+                            <img class="arrow-up-right" src="assets/images/arrow-up-right.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categories-card">
+                    <div class="">
+                        <img loading="lazy" class="cat-img" src="assets/images/pics/bangkok.jpg" alt="Bangkok image">
+                    </div>
+                    <div class="cat-text-flex">
+                        <div>
+                            <p>Bangkok</p>
+                            <p>365</p>
+                        </div>
+                        <div class="cat-text-arrow">
+                            <img class="arrow-up-right" src="assets/images/arrow-up-right.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categories-card">
+                    <div class="">
+                        <img loading="lazy" class="cat-img" src="assets/images/pics/philippines.jpg"
+                            alt="The Philippines image">
+                    </div>
+                    <div class="cat-text-flex">
+                        <div>
+                            <p>The Philippines</p>
+                            <p>365</p>
+                        </div>
+                        <div class="cat-text-arrow">
+                            <img class="arrow-up-right" src="assets/images/arrow-up-right.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="categories-card">
+                    <div class="">
+                        <img loading="lazy" class="cat-img" src="assets/images/pics/kuala-lumper.jpg"
+                            alt="Kuala lumper image">
+                    </div>
+                    <div class="cat-text-flex">
+                        <div>
+                            <p>Kuala lumper</p>
+                            <p>365</p>
+                        </div>
+                        <div class="cat-text-arrow">
+                            <img class="arrow-up-right" src="assets/images/arrow-up-right.png" alt="">
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="price-view-all">
+                <button class="black-btn">View All Categories</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Opportunities  -->
+    <section id="opportunities" class="py-5 container-fluid">
+        <div class="content-width">
+            <div class="opport-flex flex-box">
+                <div class="opport-item opport-text mobile-view">
+                    <h2 class="pb-3">Discover Opportunities</h2>
+                    <p>At Bizindecate, we understand that finding the right business opportunity can be daunting. That's
+                        why we
+                        have created a user-friendly platform where you can easily browse through a wide range of
+                        listings.
+                        Our
+                        listings cover various industries, from retail and hospitality to technology and healthcare.
+                        Each
+                        listing is
+                        detailed, providing you with all the information you need to make an informed decision.</p>
+                    <p class="pt-3">Our platform offers detailed listings that include a comprehensive overview of
+                        businesses,
+                        encompassing
+                        financials, operations, and growth potential. We provide the latest industry insights to aid in
+                        better
+                        decision-making and feature advanced search filters to help find the perfect match for your
+                        needs</p>
+                </div>
+                <div loading="lazy" class="opport-item opport-imgs">
+                    <img src="assets/images/pics/oport-img-0.jpg" alt="">
+                    <img src="assets/images/pics/oport-img-1.jpg" alt="">
+                    <img src="assets/images/pics/oport-img-2.jpg" alt="">
+                    <img src="assets/images/pics/oport-img-3.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features  -->
+
+    <section id="features" class="py-5 container-fluid">
+        <div class="content-width mobile-view">
+            <div>
+                <h2 class="py-5 text-center">On Bizindecate You Can</h2>
+            </div>
+            <div>
+                <div class="features-content">
+                    <div class="feature-flex shadow flex-box mobile-view">
+                        <div class="feature-flex-item">
+                            <h3>Sell Your Business</h3>
+                            <p>John, the founder of InnovateTech Solutions, developed a groundbreaking software product
+                                but
+                                needed
+                                to focus on new projects. He decided to sell his startup but wanted to ensure it went to
+                                the
+                                right
+                                buyer. Through Bizindecate, John created a detailed listing that highlighted the unique
+                                aspects and
+                                potential of his business. Within a few months, InnovateTech Solutions was acquired by a
+                                larger tech
+                                company, allowing John to move on to his next innovation while ensuring his startup
+                                continued to
+                                thrive under new ownership.</p>
+                        </div>
+                        <div class="feature-flex-item feature-flex-pic">
+                            <img loading="lazy" class="mobile-pic"
+                                src="assets/images/pics/real-estate-agents-front-door.jpg" alt="real estate agents">
+                        </div>
+                    </div>
+
+                    <div class="feature-flex shadow flex-box mobile-view apple-man">
+                        <div class="feature-flex-item feature-flex-pic">
+                            <img class="mobile-pic"
+                                src="assets/images/pics/crazy-man-with-piggy-bank-funny-expression.jpg"
+                                alt="man with apple">
+                        </div>
+
+                        <div class="feature-flex-item">
+                            <h3>
+                                Invest With Confidence
+                            </h3>
+                            <p>John, the founder of InnovateTech Solutions, developed a groundbreaking software product
+                                but
+                                needed
+                                to focus on new projects. He decided to sell his startup but wanted to ensure it went to
+                                the
+                                right
+                                buyer. Through Bizindecate, John created a detailed listing that highlighted the unique
+                                aspects and
+                                potential of his business. Within a few months, InnovateTech Solutions was acquired by a
+                                larger tech
+                                company, allowing John to move on to his next innovation while ensuring his startup
+                                continued to
+                                thrive under new ownership.</p>
+                        </div>
+                    </div>
+
+                    <div class="feature-flex shadow flex-box mobile-view">
+                        <div class="feature-flex-item">
+                            <h3>Buy Your Business</h3>
+                            <p>John, the founder of InnovateTech Solutions, developed a groundbreaking software product
+                                but
+                                needed
+                                to focus on new projects. He decided to sell his startup but wanted to ensure it went to
+                                the
+                                right
+                                buyer. Through Bizindecate, John created a detailed listing that highlighted the unique
+                                aspects and
+                                potential of his business. Within a few months, InnovateTech Solutions was acquired by a
+                                larger tech
+                                company, allowing John to move on to his next innovation while ensuring his startup
+                                continued to
+                                thrive under new ownership.</p>
+                        </div>
+                        <div class="feature-flex-item feature-flex-pic">
+                            <img loading="lazy" class="mobile-pic" src="assets/images/pics/Rectangle-3310.png"
+                                alt="man behind the desk">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success stories  -->
+
+    <section id="success" class="py-5 container-fluid">
+        <div class="content-width">
+            <div>
+                <div class="py-5 success-title mobile-view">
+                    <h2 class="py-3">Success Stories at Bizindecate</h2>
+                    <p>At Bizindecate, we take pride in the success stories of our clients. These stories showcase the
+                        impact
+                        our platform has had on their business journeys, from buying and selling to investing and
+                        growth. Here
+                        are a few inspiring success stories from our community.</p>
+                </div>
+
+                <!-- Success Carousel  -->
+
+                <!-- BOOTSTRAP carousel -->
+
+                <div id="carouselExample" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <!-- first slide  -->
+                            <div class="success-carousel shadow">
+                                <div class="pb-5 success-carousel-flex flex-box">
+                                    <div>
+                                        <h3>InnovateTech Solutions</h3>
+                                        <p>John, the founder of InnovateTech Solutions, developed a groundbreaking
+                                            software product
+                                            but
+                                            needed to
+                                            focus on new projects. He decided to sell his startup but wanted to ensure
+                                            it went to
+                                            the
+                                            right
+                                            buyer.
+                                            Through Bizindecate, John created a detailed listing that highlighted the
+                                            unique aspects
+                                            and
+                                            potential
+                                            of his business. Within a few months, InnovateTech Solutions was acquired by
+                                            a larger
+                                            tech
+                                            company,
+                                            allowing John to move on to his next innovation while ensuring his startup
+                                            continued to
+                                            thrive
+                                            under new
+                                            ownership.</p>
+                                    </div>
+                                    <div class=""><img loading="lazy"
+                                            src="assets/images/pics/business-progress-report-graph-concept.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="success-quote">
+                                    <div class="success-quote-flex">
+                                        <div class="quote-mark"><img src="assets/images/faces/quote1.svg" alt=""></div>
+                                        <div class="success-quote-text">"Bizindecate made the selling
+                                            process incredibly smooth. Their platform provided all the
+                                            tools I needed
+                                            to present my business effectively and reach the right buyers."</div>
+                                        <div class="quote-mark"><img src="assets/images/faces/quote.svg" alt=""></div>
+                                    </div>
+                                    <div class="quote-writer-flex">
+                                        <img src="assets/images/faces/alok.png" alt="">
+                                        <div>
+                                            <span class="quote-author">Alok Copal</span><br>
+                                            <span>Product Designer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <!-- Second slide  -->
+                            <div class="success-carousel shadow">
+                                <div class="pb-5 success-carousel-flex flex-box">
+                                    <div>
+                                        <h3>InnovateTech Solutions</h3>
+                                        <p>John, the founder of InnovateTech Solutions, developed a groundbreaking
+                                            software product
+                                            but
+                                            needed to
+                                            focus on new projects. He decided to sell his startup but wanted to ensure
+                                            it went to
+                                            the
+                                            right
+                                            buyer.
+                                            Through Bizindecate, John created a detailed listing that highlighted the
+                                            unique aspects
+                                            and
+                                            potential
+                                            of his business. Within a few months, InnovateTech Solutions was acquired by
+                                            a larger
+                                            tech
+                                            company,
+                                            allowing John to move on to his next innovation while ensuring his startup
+                                            continued to
+                                            thrive
+                                            under new
+                                            ownership.</p>
+                                    </div>
+                                    <div class=" "><img loading="lazy"
+                                            src="assets/images/pics/business-progress-report-graph-concept.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="success-quote">
+                                    <div class="success-quote-flex">
+                                        <div class="quote-mark"><img src="assets/images/faces/quote1.svg" alt=""></div>
+                                        <div class="success-quote-text">"Bizindecate made the selling
+                                            process incredibly smooth. Their platform provided all the
+                                            tools I needed
+                                            to present my business effectively and reach the right buyers."</div>
+                                        <div class="quote-mark"><img src="assets/images/faces/quote.svg" alt=""></div>
+                                    </div>
+                                    <div class="quote-writer-flex">
+                                        <img src="assets/images/faces/alok.png" alt="">
+                                        <div>
+                                            <span class="quote-author">Alok Copal</span><br>
+                                            <span>Product Designer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <!-- Third slide -->
+                            <div class="success-carousel shadow">
+                                <div class="pb-5 success-carousel-flex flex-box">
+                                    <div>
+                                        <h3>InnovateTech Solutions</h3>
+                                        <p>John, the founder of InnovateTech Solutions, developed a groundbreaking
+                                            software product
+                                            but
+                                            needed to
+                                            focus on new projects. He decided to sell his startup but wanted to ensure
+                                            it went to
+                                            the
+                                            right
+                                            buyer.
+                                            Through Bizindecate, John created a detailed listing that highlighted the
+                                            unique aspects
+                                            and
+                                            potential
+                                            of his business. Within a few months, InnovateTech Solutions was acquired by
+                                            a larger
+                                            tech
+                                            company,
+                                            allowing John to move on to his next innovation while ensuring his startup
+                                            continued to
+                                            thrive
+                                            under new
+                                            ownership.</p>
+                                    </div>
+                                    <div class=""><img loading="lazy"
+                                            src="assets/images/pics/business-progress-report-graph-concept.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="success-quote">
+                                    <div class="success-quote-flex">
+                                        <div class="quote-mark"><img src="assets/images/faces/quote1.svg" alt=""></div>
+                                        <div class="success-quote-text">"Bizindecate made the selling
+                                            process incredibly smooth. Their platform provided all the
+                                            tools I needed
+                                            to present my business effectively and reach the right buyers."</div>
+                                        <div class="quote-mark"><img src="assets/images/faces/quote.svg" alt=""></div>
+                                    </div>
+                                    <div class="quote-writer-flex">
+                                        <img src="assets/images/faces/alok.png" alt="">
+                                        <div>
+                                            <span class="quote-author">Alok Copal</span><br>
+                                            <span>Product Designer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-control-btns">
+                        <button class="carousel-control-prev slide-control-btn" type="button"
+                            data-bs-target="#carouselExample" data-bs-slide="prev">
+                            <span> <img src="assets/images/icons/angle-left.png" alt=""> </span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next slide-control-btn" type="button"
+                            data-bs-target="#carouselExample" data-bs-slide="next">
+                            <span><img src="assets/images/icons/angle-right.png" alt=""></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- BOOTSTRAP carousel  -->
+
+                <!-- Success Carousel end -->
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Environment help -->
+
+    <section id="environment" class="container-fluid">
+        <div class="environment-flex flex-box content-width mobile-view">
+            <div class="environment-flex-item  ">
+                <img loading="lazy" class="mobile-pic" src="assets/images/pics/planting-trees-as-part-reforestation-process.jpg"
+                    alt="plant trees">
+            </div>
+            <div class="environment-flex-item">
+                <h2>Helping the Environment</h2>
+                <p>We think that business can have a positive impact on the environment. We are able to assist with
+                    reforestation efforts because of our partnership with OneTreePlanted. We promise to plant a tree for
+                    each
+                    registered and verified user on our platform.</p>
+                <p>By the end of June, we hope to have 1,000 users, which
+                    will
+                    mean 500 additional trees. In addition, we donate 3% of our earnings to reforestation initiatives,
+                    which
+                    aid
+                    in the preservation of natural ecosystems and the fight against climate change.</p>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Blog  -->
+
+    <section id="blog" class="py-5 container-fluid">
+        <div class="content-width mobile-view">
+            <h2>Our Latest Blog</h2>
+            <div class="blog-flex desktop-hide">
+                <div class="blog-flex-item  ">
+                    <p class="blog-date">May 21, 2024</p>
+                    <img loading="lazy" src="assets/images/blog-img/blog-img-1.png" alt="">
+                    <div class="blog-post">
+                        <div class="my-2 blog-tags">
+                            <span class="blog-tag">MASTERMIND GROUPS</span>
+                            <span class="blog-tag"> SMALL BUSINESS GROWTH</span>
+                            <span class="blog-tag"> BUSINESS ACCOUNTABILITY</span>
+                        </div>
+
+
+                        <div class="py-4">
+                            <h3>Small Business Accountability Mastermind Accountability For Success</h3>
+                            <p>Managing a small company is similar to being on a roller coaster. There are inspiring
+                                peaks.....</p>
+                        </div>
+                        <div>
+                            <button class="black-btn">Read More</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-flex-item">
+                    <p class="blog-date">May 21, 2024</p>
+                    <img loading="lazy" src="assets/images/blog-img/blog-img-2.png" alt="">
+
+                    <div class="blog-post">
+                        <div class="my-2 blog-tags">
+                            <span class="blog-tag">BUSINESS NETWORKING</span>
+                            <span class="blog-tag"> LINKEDIN NETWORKING</span>
+                            <span class="blog-tag"> BUSINESS MENTORSHIP</span>
+                        </div>
+
+
+                        <div class="py-4">
+                            <h3>How Much Entrepreneurs Can Leverage Business Networking Platforms</h3>
+                            <p>Platforms for business networking have completely changed how entrepreneurs
+                                communicate...</p>
+                        </div>
+                        <div>
+                            <button class="black-btn">Read More</button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="blog-flex-item">
+                    <p class="blog-date">May 21, 2024</p>
+                    <img loading="lazy" src="assets/images/blog-img/blog-img-3.png" alt="">
+                    <div class="blog-post">
+                        <div class="my-2 blog-tags">
+                            <span class="blog-tag">BIZINDECATE</span>
+                            <span class="blog-tag"> BUSINESS</span>
+                            <span class="blog-tag"> PLANTING</span>
+                            <span class="blog-tag"> TREES</span>
+                            <span class="blog-tag"> ONETREEPLANTED</span>
+                        </div>
+
+
+                        <div class="py-4">
+                            <h3>Bizindecate's Innovative Website Redesign And Tree Planting Initiative</h3>
+                            <p>Bizindecate has taken an impressive leap towards sustainability with its partnership with
+                                ...</p>
+                        </div>
+                        <div>
+                            <button class="black-btn">Read More</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Blog Mobile view  -->
+
+            <div class="blog-flex mobile-show">
+
+                <!-- Blog carousel  -->
+
+                <div id="carouselBlog" class="carousel carousel-dark slide">
+                    <div class="carousel-indicators car-indicator">
+                        <button type="button" data-bs-target="#carouselBlog" data-bs-slide-to="0" class="active"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselBlog" data-bs-slide-to="1"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselBlog" data-bs-slide-to="2"
+                            aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <div class="blog-flex-item">
+                                <p class="blog-date">May 21, 2024</p>
+                                <img loading="lazy" src="assets/images/blog-img/blog-img-1.png" alt="">
+                                <div class="blog-post">
+                                    <div class="my-2 blog-tags">
+                                        <span class="blog-tag">MASTERMIND GROUPS</span>
+                                        <span class="blog-tag"> SMALL BUSINESS GROWTH</span>
+                                        <span class="blog-tag"> BUSINESS ACCOUNTABILITY</span>
+                                    </div>
+
+
+                                    <div class="py-4">
+                                        <h3>Small Business Accountability Mastermind Accountability For Success</h3>
+                                        <p>Managing a small company is similar to being on a roller coaster. There are
+                                            inspiring
+                                            peaks.....</p>
+                                    </div>
+                                    <div>
+                                        <button class="black-btn">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="blog-flex-item">
+                                <p class="blog-date">May 21, 2024</p>
+                                <img loading="lazy" src="assets/images/blog-img/blog-img-2.png" alt="">
+
+                                <div class="blog-post">
+                                    <div class="my-2 blog-tags">
+                                        <span class="blog-tag">BUSINESS NETWORKING</span>
+                                        <span class="blog-tag"> LINKEDIN NETWORKING</span>
+                                        <span class="blog-tag"> BUSINESS MENTORSHIP</span>
+                                    </div>
+
+
+                                    <div class="py-4">
+                                        <h3>How Much Entrepreneurs Can Leverage Business Networking Platforms</h3>
+                                        <p>Platforms for business networking have completely changed how entrepreneurs
+                                            communicate...</p>
+                                    </div>
+                                    <div>
+                                        <button class="black-btn">Read More</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <div class="blog-flex-item">
+                                <p class="blog-date">May 21, 2024</p>
+                                <img loading="lazy" src="assets/images/blog-img/blog-img-3.png" alt="">
+                                <div class="blog-post">
+                                    <div class="my-2 blog-tags">
+                                        <span class="blog-tag">BIZINDECATE</span>
+                                        <span class="blog-tag"> BUSINESS</span>
+                                        <span class="blog-tag"> PLANTING</span>
+                                        <span class="blog-tag"> TREES</span>
+                                        <span class="blog-tag"> ONETREEPLANTED</span>
+                                    </div>
+
+
+                                    <div class="py-4">
+                                        <h3>Bizindecate's Innovative Website Redesign And Tree Planting Initiative</h3>
+                                        <p>Bizindecate has taken an impressive leap towards sustainability with its
+                                            partnership with
+                                            ...</p>
+                                    </div>
+                                    <div>
+                                        <button class="black-btn">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide-control-btns">
+                        <button class="carousel-control-prev slide-control-btn" type="button"
+                            data-bs-target="#carouselBlog" data-bs-slide="prev">
+                            <span> <img src="assets/images/icons/angle-left.png" alt=""> </span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next slide-control-btn" type="button"
+                            data-bs-target="#carouselBlog" data-bs-slide="next">
+                            <span><img src="assets/images/icons/angle-right.png" alt=""></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <button class="my-5 black-btn center-things">View All Blog</button>
+        </div>
+
+    </section>
+
+    <!-- Contact us  -->
+
+    <section id="contact" class="container-fluid">
+        <div class="content-width contact-us-border mobile-view">
+            <div class="center-things">
+                <h2 class="pt-4">Contact Us</h2>
+                <p class="center-things">We'd love to hear from you. Whether you have questions about our services or
+                    want to schedule a
+                    consultation, our team is here to help</p>
+            </div>
+
+            <div class="mt-5 contact-grid">
+                <div class="contact-grid-item mobile-view">
+                    <!-- <img class="contact-img mobile-pic" src="assets/images/pics/woman-buyer-selecting-clothes-board.jpg" alt=""> -->
+                </div>
+                <div class="contact-grid-item mobile-view">
+                    <div class="">
+                        <form class="" action="">
+                            <label for="text">Full Name</label>
+                            <input type="text" placeholder="Enter your name" autocomplete="off">
+                            <label for="email">Email</label>
+                            <input type="email" placeholder="Enter your email" autocomplete="off">
+                            <label for="text">Address</label>
+                            <input type="text" placeholder="Please write the address" autocomplete="off">
+                            <label for="textarea">Write your comment</label>
+                            <textarea name="" id="" placeholder="Type here" rows="3"></textarea>
+                            <button class="my-3 black-btn" type="submit">Send</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Subscribe  -->
+
+    <section id="subscribe" class="py-5 container-fluid">
+        <div class="content-width sub-background">
+            <div>
+                <div class="center-things">
+                    <h2 class="py-2">Subscribe to Our Newsletter</h2>
+                    <p class="sub-paragraph center-things">Stay updated with the latest articles, news, and exclusive
+                        bonuses by subscribing to our
+                        newsletter. Get
+                        valuable insights delivered directly to your inbox and never miss an opportunity.</p>
+                </div>
+                <div class="py-4 center-things">
+                    <form action="">
+                        <input type="text" placeholder="Enter Your Mail" autocomplete="off">
+                        <button class="sub-button" type="submit">Subscribe</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer  -->
+
+    <footer class="pt-5 container-fluid">
+        <div class="content-width">
+            <div class="footer-flex">
+                <div class="footer-flex-item">
+                    <img class="pb-2 footer-logo" src="assets/images/logo-dark.png" alt="logo">
+                    <p>Transform your business with strategic insights and expert guidance. Our experienced consultants
+                        are
+                        dedicated to driving your success. Get started today</p>
+                    <div>
+                        <ul class="social-links">
+                            <li><a href=""><img src="assets/images/icons/footer-linkdin.png" alt=""></a></li>
+                            <li><a href=""><img src="assets/images/icons/footer-twitter.png" alt=""></a></li>
+                            <li><a href=""><img src="assets/images/icons/footer-insta.png" alt=""></a></li>
+                            <li><a href=""><img src="assets/images/icons/footer-youtube.png" alt=""></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-flex-item">
+                    <h4 class="pb-2">Quick Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href=""> Buy a Business</a></li>
+                        <li><a href=""> Sell a Business</a></li>
+                        <li><a href=""> Investments</a></li>
+                        <li><a href=""> Brokers</a></li>
+                        <li><a href="#about"> About us</a></li>
+                        <li><a href="#blog"> Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-flex-item">
+                    <h4 class="pb-2">Quick Links</h4>
+                    <ul>
+                        <li><a href="">Terms of Service</a></li>
+                        <li><a href=""> Privacy Policy</a></li>
+                        <li><a href=""> Cookie Policy_</a></li>
+                        <li><a href=""> Acceptable-use-Policy</a></li>
+                    </ul>
+
+                </div>
+                <div class="footer-flex-item">
+                    <h4 class="pb-2">Contact</h4>
+                    <ul>
+                        <li class="footer-contact-list"><img src="assets/images/icons/location-pin.png" alt=""><a
+                                href=""> 712 Northwest Business
+                                Park, Ballycoolin, Dublin 15, D15 X383</a></li>
+                        <li class="footer-contact-list"><img src="assets/images/icons/phone.png" alt=""><a href=""> +353
+                                87 191 8237</a></li>
+                        <li class="footer-contact-list"><img src="assets/images/icons/envelope.png" alt=""><a href="">
+                                Info@amkc.ie</a></li>
+                        <li><a href=""><img src="assets/images/icons/stripe.png" alt=""></a></li>
+                        <li><img src="assets/images/icons/cards1.png" alt=""></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-5 copyright">
+                <div>
+                    <p>© 2024 BIZINDECATE. All Rights Reserved.</p>
+                </div>
+                <div>
+                    <p class="copy-link"><a href="">Terms & Conditions</a> <a href="">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- {% include '/listing/listing-script.html.twig' with {'listings': listings, 'home' : true} %} -->
+</body>
+
+</html>
