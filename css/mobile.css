@@ -10,6 +10,12 @@ p {
     width: 90%;
 }
 
+
+ header {
+    min-height: 100%;
+    background-position: bottom;
+ }
+
 .navbar-links-bg {
     background-color: #070707E5;
     position: fixed;
