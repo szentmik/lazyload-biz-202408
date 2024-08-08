@@ -73,7 +73,7 @@ p {
     margin-left: 0;
     padding-left: 0;
     height: 100%;
-    width: 8rem;
+    width: 7.5rem;
 }
 
 
@@ -150,7 +150,8 @@ p {
 /* Hero Section mobile  */
 
 .hero {
-    height: 90vh;
+    padding: 25% 0;
+    height: 100%;
 }
 
 .hero>div {
