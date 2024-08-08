@@ -95,6 +95,7 @@ nav {
 .navbar-flex {
     display: flex;
     align-items: center;
+    position: relative;
 }
 
 
@@ -138,6 +139,35 @@ nav {
     gap: .5rem;
 }
 
+.nav-button {
+    background-color: var(--lightGray);
+    color: var(--black);
+    border: solid 2px transparent;
+    border-radius: 100px;
+    font-weight: 600;
+    cursor: pointer;
+    height: 3rem;
+    width: 6.5rem;
+}
+
+.lang-btn-2:hover {
+    filter: grayscale(.5);
+}
+
+.nav-buttons .nav-button:first-of-type {
+    border-color: var(--black);
+}
+
+.nav-buttons .nav-button:last-of-type {
+    background-color: var(--black);
+    color: #ffffff;
+}
+
+.nav-buttons .nav-button:hover {
+    filter: invert(95%);
+}
+
+
 .hide {
     display: none;
 }
@@ -146,15 +176,7 @@ nav {
     display: block;
 }
 
-.nav-button {
-    background-color: transparent;
-    border: solid 2px transparent;
-    border-radius: 100px;
-    font-weight: 600;
-    cursor: pointer;
-    height: 3rem;
-    width: 6.5rem;
-}
+
 
 .lang-btn-2 {
     margin-left: auto;
@@ -190,29 +212,6 @@ nav {
     max-height: 15rem;
 }
 
-.nav-button:nth-of-type(1) {
-    background-color: var(--lightGray);
-}
-
-.nav-button:nth-of-type(2) {
-    background-color: #ffffff;
-    border: solid 2px var(--black);
-    color: var(--black);
-}
-
-.nav-button:nth-of-type(3) {
-    background-color: var(--black);
-    color: #ffffff;
-}
-
-.nav-button:nth-of-type(1):hover {
-    filter: grayscale(.5);
-}
-
-.nav-button:nth-of-type(2):hover,
-.nav-button:nth-of-type(3):hover {
-    filter: invert(100%);
-}
 
 /* Hero section  */
 

@@ -16,12 +16,17 @@ p {
     background-position: bottom;
  }
 
+ .nav-buttons {
+    position: absolute;
+    right: 0;
+ }
+
 .navbar-links-bg {
     background-color: #070707E5;
-    position: fixed;
+    position: absolute;
     display: block;
-    top: 7.5rem;
-    left:0;
+    top:3rem;
+    left:-2.5rem;
     z-index: 1;
     height: 0;
     overflow: hidden;
@@ -30,8 +35,6 @@ p {
 }
 
 .show-nav-links {
-    position: absolute;
-    left:0;
     height: 100vh;
 }
 
@@ -83,6 +86,8 @@ p {
 
 
 .lang-btn-2 {
+    background-color: var(--lightGray);
+    border-radius: 100px;
     display: block;
     margin-left: .5rem;
 }
