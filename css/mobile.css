@@ -16,22 +16,34 @@ p {
     background-position: bottom;
  }
 
- .nav-buttons {
-    position: absolute;
-    right: -1rem;
- }
+.nav-background {
+    position: relative;
+    padding: 0 5%;
+    height: 3rem;
+    width: 100vw;
+}
+
+.nav-background .content-width {
+    width: 100%;
+}
+
+.navbar-flex {
+    justify-content: space-between;
+}
+
+
 
 .navbar-links-bg {
     background-color: #070707E5;
     position: absolute;
     display: block;
     top:3rem;
-    left: 0;
-    z-index: 1;
+    left:0;
     height: 0;
     overflow: hidden;
     transition: .3s;
-    width: 100%;
+    width: 100vw;
+    z-index: 1;
 }
 
 .show-nav-links {
@@ -58,6 +70,8 @@ p {
 }
 
 .nav-logo {
+    margin-left: 0;
+    padding-left: 0;
     height: 100%;
     width: 8rem;
 }
@@ -112,6 +126,7 @@ p {
     left:-2rem;
     background-color: #f9f9f9;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
     padding: 12px 16px;
     z-index: 1;
     min-width: 50vw;
@@ -133,6 +148,10 @@ p {
 }
 
 /* Hero Section mobile  */
+
+.hero {
+    height: 90vh;
+}
 
 .hero>div {
     width: 100%;

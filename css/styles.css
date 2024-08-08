@@ -84,7 +84,10 @@ input:focus, textarea:focus {
 
 .nav-background {
     background-color: #ffffff;
-    min-height: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
 }
 
 nav {
@@ -95,7 +98,6 @@ nav {
 .navbar-flex {
     display: flex;
     align-items: center;
-    position: relative;
 }
 
 
