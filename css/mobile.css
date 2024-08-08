@@ -185,6 +185,7 @@ p {
     display: flex;
     justify-content: center;
     margin: 2rem auto;
+    top:0;
 }
 
 .listing-item {

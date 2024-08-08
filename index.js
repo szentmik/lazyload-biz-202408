@@ -3,6 +3,7 @@ const mMenuBtn = document.querySelector(".mobile-menu-btn");
 const navClose = document.querySelector(".nav-close");
 const toggleSwitch = document.querySelectorAll(".slide-btns");
 const mMenuLinks = document.querySelectorAll(".nav-link");
+const langChange = document.querySelectorAll(".lang-dropdown-content a");
 
 toggleSwitch.forEach((btn, i) => {
     btn.addEventListener("click", () => {
@@ -33,6 +34,6 @@ mMenuLinks.forEach((btn) => {
     });
 });
 
-const langDropdown = () =>{
+const langDropdown = () => {
     document.querySelector(".lang-dropdown-content").classList.toggle("lang-show");
 };

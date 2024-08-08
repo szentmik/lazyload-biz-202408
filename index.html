@@ -61,8 +61,7 @@
                 <div class="container-fluid">
                     <div class="navbar-flex">
                         <div class="">
-                            <a href="#"><img class="nav-logo" src="assets/images/logo-dark.png"
-                                    alt="logo"></a>
+                            <a href="#"><img class="nav-logo" src="assets/images/logo-dark.png" alt="logo"></a>
                         </div>
                         <div class="navbar-links-bg">
                             <div class="navbar-links">
@@ -76,12 +75,29 @@
                                 <a class="nav-link" href="#about">About us</a>
                                 <a class="nav-link" href="#blog">Blog</a>
                                 <div class="lang-dropdown lang-btn-2">
-                                    <button class="nav-button lang-btn-2" onclick="langDropdown()"><img src="assets/images/flag-eng.png" alt="">
-                                        EN <img src="assets/images/icons/arrow-down.png" alt=""></button>
+
+                                    <!-- <div class="language-changer" action="">
+                                        <select>
+                                            <option value="">EN</option>
+                                            <option value="">DE</option>
+                                            <option value="">HU</option>
+                                        </select>
+                                    </div> -->
+
+
+                                    <button class="nav-button lang-btn-2" onclick="langDropdown()">
+                                        <img class="flag-icon" src="assets/images/flag-icons/flag-EN.svg" alt="">
+                                        <span>EN</span> <img src="assets/images/icons/arrow-down.png" alt="">
+                                    </button>
                                     <div class="lang-dropdown-content">
-                                        <a href="">DE</a><br>
-                                        <a href="">HU</a><br>
-                                        <a href="">...</a><br>
+                                        <a href="">
+                                            <img class="flag-icon" src="assets/images/flag-icons/flag-DE.svg" alt="">
+                                            <span>DE</span>
+                                        </a>
+                                        <a href="">
+                                            <img class="flag-icon" src="assets/images/flag-icons/flag-HU.svg" alt="">
+                                            <span>HU</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
