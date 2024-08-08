@@ -18,7 +18,7 @@ p {
 
  .nav-buttons {
     position: absolute;
-    right: 0;
+    right: -1rem;
  }
 
 .navbar-links-bg {
@@ -26,12 +26,12 @@ p {
     position: absolute;
     display: block;
     top:3rem;
-    left:-2.5rem;
+    left: 0;
     z-index: 1;
     height: 0;
     overflow: hidden;
     transition: .3s;
-    width: 100vw;
+    width: 100%;
 }
 
 .show-nav-links {
@@ -62,14 +62,17 @@ p {
     width: 8rem;
 }
 
+
 .nav-button {
-    background-color: transparent;
+    background-color: var(--lightGray);
+    color: var(--black);
     border: solid 2px transparent;
-    border-radius: 5rem;
+    border-radius: 100px;
     font-size: .75rem;
     font-weight: 600;
     cursor: pointer;
-    padding: .125rem .5rem;
+    height: 2rem;
+    width: 5rem;
 }
 
 .mobile-menu-btn {
