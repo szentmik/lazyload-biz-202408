@@ -32,3 +32,7 @@ mMenuLinks.forEach((btn) => {
         document.querySelector(".navbar-links-bg").classList.remove("show-nav-links");
     });
 });
+
+const langDropdown = () =>{
+    document.querySelector(".lang-dropdown-content").classList.toggle("lang-show");
+};

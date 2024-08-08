@@ -81,12 +81,10 @@ p {
     padding: 1rem 2rem;
 }
 
-.lang-btn {
-    display: none;
-}
 
 .lang-btn-2 {
     display: block;
+    margin-left: .5rem;
 }
 
 .top-contact>div a {
